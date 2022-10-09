@@ -2,11 +2,12 @@ import discord
 import random
 import requests
 import json
+import os
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 from answers import *
-from main import DAD_JOKE_KEY
 
+clips = open("clips.txt").readlines()
 
 #Sadly in cogs --->
 #@client.commands() = @commands.command() and
@@ -22,8 +23,11 @@ class Normal_Commmands(commands.Cog): #The class always has to be called like th
         picked_hello_answer = random.choice(hello_answer)
         await ctx.send(f"{picked_hello_answer} {ctx.message.author}"[:-5] + "!")
     
+    
     @commands.command()
     async def dadjoke(self, ctx):
+
+        DAD_JOKE_KEY = os.getenv("DAD_JOKE_KEY")
 
         dadjokeurl = "https://daddyjokes.p.rapidapi.com/random"
 
