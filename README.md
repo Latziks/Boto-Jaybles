@@ -1,0 +1,1 @@
+Hello! This is a community discord bot for JamesLee85! There are a lot of interesting commands and hopefully, you'll enjoy them! If you need any help with the commands type -help. This command will explain everything! Okay, have fun! 
