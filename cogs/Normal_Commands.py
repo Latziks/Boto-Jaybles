@@ -7,8 +7,6 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 from answers import *
 
-clips = open("clips.txt").readlines()
-
 #Sadly in cogs --->
 #@client.commands() = @commands.command() and
 #@client.event = @commands.cog.listener()
@@ -42,6 +40,7 @@ class Normal_Commmands(commands.Cog): #The class always has to be called like th
 
     @commands.command()
     async def randomclip(self, ctx):
+        clips = open("clips.txt").readlines()
 
         picked_clip = random.choice(clips)
         picked_randomclip_answer = random.choice(randomclip_anwer)
@@ -50,19 +49,24 @@ class Normal_Commmands(commands.Cog): #The class always has to be called like th
     @commands.command()
     @has_permissions(kick_members=True)
     async def addclip(self, ctx, url: str):
+        clips = open("clips.txt").readlines()
+
         if url in clips:
             picked_addclips_already_in_answer = random.choice(addclips_already_in_answer)
             await ctx.send(picked_addclips_already_in_answer)
+            print(clips)
         else: 
             if not url.startswith("https://clips.twitch.tv/"):
                 picked_addclips_not_twitch_answer = random.choice(addclips_not_twitch_answer)
                 await ctx.send(picked_addclips_not_twitch_answer)
+                print(clips)
             else:
                 picked_addclips_added_clip = random.choice(addclips_added_clip)
                 file = open("clips.txt", "a")
                 file.write(f"\n{url}")
                 file.close()
                 await ctx.send(picked_addclips_added_clip)
+                print(clips)
     
     @addclip.error
     async def addclip_error(self, ctx, error): 
