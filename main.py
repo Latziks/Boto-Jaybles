@@ -3,6 +3,12 @@ import asyncio
 import os
 from apikeys import BOTTOKEN 
 from discord.ext import commands
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOTTOKEN = os.getenv("BOTTOKEN")
+DAD_JOKE_KEY = os.getenv("DAD_JOKE_KEY")
 
 intents = discord.Intents.all() #Intents are so we can use so so many different commands and events in discord. It gives us acess to these events
 intents.members = True

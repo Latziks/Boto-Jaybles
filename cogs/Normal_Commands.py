@@ -5,7 +5,7 @@ import json
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 from answers import *
-from apikeys import DAD_JOKE_KEY
+from main import DAD_JOKE_KEY
 
 
 #Sadly in cogs --->
