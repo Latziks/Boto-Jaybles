@@ -3,6 +3,8 @@ import random
 import requests
 import json
 import os
+import git
+from git import Repo
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 from answers import *
@@ -10,6 +12,8 @@ from answers import *
 #Sadly in cogs --->
 #@client.commands() = @commands.command() and
 #@client.event = @commands.cog.listener()
+
+repo = Repo("https://github.com/Latziks/Boto-Jaybles.git")
 
 class Normal_Commmands(commands.Cog): #The class always has to be called like the file name!
  
@@ -65,6 +69,10 @@ class Normal_Commmands(commands.Cog): #The class always has to be called like th
                 file = open("clips.txt", "a")
                 file.write(f"\n{url}")
                 file.close()
+                repo.git.add(all=True)
+                repo.index.commit("Yay! This worked!")
+                origin = repo.remote('origin')
+                origin.push()
                 await ctx.send(picked_addclips_added_clip)
                 print(clips)
     
