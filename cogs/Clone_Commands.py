@@ -24,6 +24,10 @@ class Clone_Commmands(commands.Cog):
     @commands.command()
     async def clone4(self, ctx): 
         await ctx.send(file = discord.File("JamesStock.gif"))
+    
+    @commands.command()
+    async def clone5(self, ctx): 
+        await ctx.send(file = discord.File("JamesYTClone.gif"))
 
 async def setup(client):
     await client.add_cog(Clone_Commmands(client))

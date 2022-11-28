@@ -12,10 +12,10 @@ load_dotenv()
 
 BOTTOKEN = os.getenv("BOTTOKEN")
 
-intents = discord.Intents.all() #Intents are so we can use so so many different commands and events in discord. It gives us acess to these events
+intents = discord.Intents.all() #Intents are so we can use so so many different commands and events in discord! It gives us acess to these events
 intents.members = True
 client = commands.Bot(command_prefix = "-", intents=intents, help_command=None) 
-status = cycle(["Coded by: Latziks :)", "Hey! I see you!", "Use the -help command!", "JAMES BOT IS HERE", "Use the -help command to see all of the commands!", "JamesLee Twitch -> https://www.twitch.tv/jameslee85", "JamesLee YouTube -> https://www.youtube.com/channel/UCw3QUEX--77dy9T0_AVVFgg"])
+status = cycle(["Coded by: Latziks :)", "Hey! I see you!", "Use the -help command!", "JAMES BOT IS HERE", "Use the -help command to see all of the commands!", "JamesLee Twitch -> https://www.twitch.tv/jameslee85", "JamesLee YouTube -> https://www.youtube.com/channel/UCw3QUEX--77dy9T0_AVVFgg", " The 1st secret command is...", "-CommandFirst"])
 
 @client.event                                           
 async def on_ready():
@@ -38,6 +38,5 @@ async def load():
 async def main(): #This will load the load function!
     await load()
     await client.start(BOTTOKEN)
-
 
 asyncio.run(main())

@@ -36,5 +36,20 @@ class Normal_Commmands(commands.Cog): #The class always has to be called like th
         fun_fact_get = randfacts.get_fact()
         await ctx.send(fun_fact_get)#This is so easy!
     
+    @commands.command()
+    async def silence(self, ctx):
+        picked_silence_answer = random.choice(silence_answer)
+        await ctx.send(picked_silence_answer)
+    
+    @commands.command()
+    async def yesorno(self, ctx):
+        picked_yes_answer = random.choice(yes_answer)
+        picked_no_answer = random.choice(no_answer)
+        percentage_chance = 0.5
+        if random.random() < percentage_chance:
+            await ctx.send(picked_yes_answer)
+        else: 
+            await ctx.send(picked_no_answer)
+
 async def setup(client):
     await client.add_cog(Normal_Commmands(client)) #Adds the cog in the bot.

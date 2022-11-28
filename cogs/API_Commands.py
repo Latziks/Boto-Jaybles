@@ -7,6 +7,7 @@ from discord.ext import commands
 
 from answers import *
 
+#Are you looking for the 2nd command? 
 
 class API_Commands(commands.Cog): 
 
